@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Shallow test /Users/jeandesravines/Documents/Projects/medium/ceb0080d94f0-storybook-automatic-testing/src/components/ListItem/stories.tsx Default 1`] = `
+<Default>
+  <Memo(ListItem)
+    id="id"
+    label="Label"
+    onClick={[Function]}
+  >
+    <li
+      className="container"
+      onClick={[Function]}
+      role="button"
+    >
+      <span
+        className="label"
+      >
+        Label
+      </span>
+    </li>
+  </Memo(ListItem)>
+</Default>
+`;
+
+exports[`Shallow test /Users/jeandesravines/Documents/Projects/medium/ceb0080d94f0-storybook-automatic-testing/src/components/ListItem/stories.tsx Done 1`] = `
+<Done>
+  <Default
+    done={true}
+    emoji="🤩"
+  >
+    <Memo(ListItem)
+      done={true}
+      emoji="🤩"
+      id="id"
+      label="Label"
+      onClick={[Function]}
+    >
+      <li
+        className="container done"
+        onClick={[Function]}
+        role="button"
+      >
+        <span
+          className="emoji"
+        >
+          🤩
+        </span>
+        <span
+          className="label"
+        >
+          Label
+        </span>
+      </li>
+    </Memo(ListItem)>
+  </Default>
+</Done>
+`;
+
+exports[`Shallow test /Users/jeandesravines/Documents/Projects/medium/ceb0080d94f0-storybook-automatic-testing/src/components/ListItem/stories.tsx WithEmoji 1`] = `
+<WithEmoji>
+  <Default
+    emoji="🤩"
+  >
+    <Memo(ListItem)
+      emoji="🤩"
+      id="id"
+      label="Label"
+      onClick={[Function]}
+    >
+      <li
+        className="container"
+        onClick={[Function]}
+        role="button"
+      >
+        <span
+          className="emoji"
+        >
+          🤩
+        </span>
+        <span
+          className="label"
+        >
+          Label
+        </span>
+      </li>
+    </Memo(ListItem)>
+  </Default>
+</WithEmoji>
+`;
+
+exports[`Shallow test /Users/jeandesravines/Drive/Projects/jeandesravines/medium/ceb0080d94f0-storybook-automatic-testing/src/components/ListItem/stories.tsx Default 1`] = `
+<Default>
+  <Memo(ListItem)
+    id="id"
+    label="Label"
+    onClick={[Function]}
+  >
+    <li
+      className="container"
+      onClick={[Function]}
+      role="button"
+    >
+      <span
+        className="label"
+      >
+        Label
+      </span>
+    </li>
+  </Memo(ListItem)>
+</Default>
+`;
+
+exports[`Shallow test /Users/jeandesravines/Drive/Projects/jeandesravines/medium/ceb0080d94f0-storybook-automatic-testing/src/components/ListItem/stories.tsx Done 1`] = `
+<Done>
+  <Default
+    done={true}
+    emoji="🤩"
+  >
+    <Memo(ListItem)
+      done={true}
+      emoji="🤩"
+      id="id"
+      label="Label"
+      onClick={[Function]}
+    >
+      <li
+        className="container done"
+        onClick={[Function]}
+        role="button"
+      >
+        <span
+          className="emoji"
+        >
+          🤩
+        </span>
+        <span
+          className="label"
+        >
+          Label
+        </span>
+      </li>
+    </Memo(ListItem)>
+  </Default>
+</Done>
+`;
+
+exports[`Shallow test /Users/jeandesravines/Drive/Projects/jeandesravines/medium/ceb0080d94f0-storybook-automatic-testing/src/components/ListItem/stories.tsx WithEmoji 1`] = `
+<WithEmoji>
+  <Default
+    emoji="🤩"
+  >
+    <Memo(ListItem)
+      emoji="🤩"
+      id="id"
+      label="Label"
+      onClick={[Function]}
+    >
+      <li
+        className="container"
+        onClick={[Function]}
+        role="button"
+      >
+        <span
+          className="emoji"
+        >
+          🤩
+        </span>
+        <span
+          className="label"
+        >
+          Label
+        </span>
+      </li>
+    </Memo(ListItem)>
+  </Default>
+</WithEmoji>
+`;

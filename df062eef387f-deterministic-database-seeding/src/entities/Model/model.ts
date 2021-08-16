@@ -1,24 +1,24 @@
-import _ from 'lodash'
-import firebase from '../../services/firebase'
-import { QueryObject, QueryObjectValue } from './types'
+import _ from "lodash";
+import firebase from "../../services/firebase";
+import { QueryObject, QueryObjectValue } from "./types";
 
 export default class Model {
   /**
    * Entity ID
    */
-  id?: string
+  id?: string;
 
   /**
    * Base constructor
    */
   constructor(data: Model) {
-    this.id = data.id
+    this.id = data.id;
   }
 
   /**
    * The Firestore Collection name
    */
-  protected static collectionName: string
+  protected static collectionName: string;
 
   /**
    * Create a Firestore Collection converter
@@ -26,32 +26,32 @@ export default class Model {
   private static get converter() {
     return {
       fromFirestore: <T extends Model>(snapshot: FirebaseFirestore.QueryDocumentSnapshot): T => {
-        return this.create<T>(snapshot.data() as T)
+        return this.create<T>(snapshot.data() as T);
       },
 
       toFirestore: <T extends Model>(model: T): FirebaseFirestore.DocumentData => {
         const defaults = {
           createdAt: Date.now(),
           updatedAt: Date.now(),
-        }
+        };
 
-        return { ...defaults, ...model }
+        return { ...defaults, ...model };
       },
-    }
+    };
   }
 
   /**
    * Return the Firestore Collection for the Model
    */
   protected static get collection(): FirebaseFirestore.CollectionReference {
-    return firebase.firestore().collection(this.collectionName).withConverter(this.converter)
+    return firebase.firestore().collection(this.collectionName).withConverter(this.converter);
   }
 
   /**
    * Create a new Model instance with the data as parameter
    */
   static create<T extends Model>(data: T): T {
-    return new this(data) as T
+    return new this(data) as T;
   }
 
   /**
@@ -59,13 +59,13 @@ export default class Model {
    */
   static query(where?: QueryObject): FirebaseFirestore.Query {
     const reducer = (acc: FirebaseFirestore.Query, value: QueryObjectValue, path: string) => {
-      const isObject = typeof value === 'object'
-      const entries = isObject ? Object.entries(value) : ['==', value]
+      const isObject = typeof value === "object";
+      const entries = isObject ? Object.entries(value) : ["==", value];
 
-      return acc.where(path, entries[0], entries[1])
-    }
+      return acc.where(path, entries[0], entries[1]);
+    };
 
-    return _.reduce(where, reducer, this.collection)
+    return _.reduce(where, reducer, this.collection);
   }
 
   /**
@@ -76,8 +76,8 @@ export default class Model {
     return this.query(where)
       .get()
       .then((querySnapshot) => {
-        return Promise.all(querySnapshot.docs.map(callback))
-      })
+        return Promise.all(querySnapshot.docs.map(callback));
+      });
   }
 
   /**
@@ -85,8 +85,8 @@ export default class Model {
    */
   static async deleteManyBy(where?: QueryObject): Promise<void> {
     await this.mapBy(where as QueryObject, (doc) => {
-      return doc.ref.delete()
-    })
+      return doc.ref.delete();
+    });
   }
 
   /**
@@ -94,21 +94,21 @@ export default class Model {
    */
   static async findManyBy<T extends Model>(where?: QueryObject): Promise<T[]> {
     return this.mapBy(where as QueryObject, (doc) => {
-      return doc.data()
-    })
+      return doc.data();
+    });
   }
 
   /**
    * Save or Update an Entity
    */
   static async save<T extends Model>(entity: T): Promise<T> {
-    const { collection } = this
-    const doc = collection.doc(entity.id ?? collection.doc().id)
-    const newEntity = this.create<T>({ ...entity, id: doc.id })
+    const { collection } = this;
+    const doc = collection.doc(entity.id ?? collection.doc().id);
+    const newEntity = this.create<T>({ ...entity, id: doc.id });
 
-    await doc.set(newEntity)
+    await doc.set(newEntity);
 
-    return newEntity
+    return newEntity;
   }
 
   /**
@@ -117,8 +117,8 @@ export default class Model {
   static async saveMany<T extends Model>(entities: T[]): Promise<T[]> {
     return Promise.all(
       entities.map((entity) => {
-        return this.save(entity)
+        return this.save(entity);
       })
-    )
+    );
   }
 }

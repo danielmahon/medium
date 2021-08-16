@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  min-height: 30px;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  list-style: none;
+  cursor: pointer;
+  transition-property: opacity border-color;
+  transition-duration: 300ms;
+}
+
+.container:not(.done):hover {
+  border-color: grey;
+}
+
+.container.done {
+  opacity: 0.5;
+  cursor: default
+}
+
+.emoji {
+  font-size: 18px;
+  margin-right: 10px
+}
+
+.label {
+  font: 18px helvetica;
+  font-weight: bold;
+  color: black;
+}

@@ -1,12 +1,8 @@
 version: "3.7"
 services:
   api:
-    build:
-      context: .
-      target: workspace
+    build: .
     env_file: .env
-    ports:
-      - "8080:80"
     volumes:
       - "./:/usr/src/app"
       - "/usr/src/app/dist"

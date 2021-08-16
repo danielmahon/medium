@@ -1,0 +1,9 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "jsdom",
+  "setupFilesAfterEnv": ["<rootDir>/tests/scripts/setup-after-env.ts"],
+  "collectCoverageFrom": ["<rootDir>/src/components/**/*.ts?(x)"],
+  "moduleNameMapper": {
+    "\\.module\\.css$": "<rootDir>/tests/mocks/styles.ts"
+  }
+}

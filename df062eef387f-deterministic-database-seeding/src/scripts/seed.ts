@@ -1,10 +1,10 @@
-import _ from 'lodash'
-import * as configuration from '../configuration'
-import seeders from '../seeders'
-import Seeder from '../seeders/Seeder'
+import _ from "lodash";
+import * as configuration from "../configuration";
+import seeders from "../seeders";
+import Seeder from "../seeders/Seeder";
 
 if (configuration.app.isProduction) {
-  throw new Error('You should not seed the database in other environment than the development one!')
+  throw new Error("You should not seed the database in other environment than the development one!");
 }
 
 /**
@@ -12,20 +12,20 @@ if (configuration.app.isProduction) {
  */
 async function seed(): Promise<void> {
   const reducer = async (deferred: Promise<void>, seeder: Seeder) => {
-    await deferred
+    await deferred;
 
-    console.info(`Start seeding for ${seeder.constructor.name} …`)
+    console.info(`Start seeding for ${seeder.constructor.name} …`);
 
-    await seeder.clean()
-    await seeder.run()
+    await seeder.clean();
+    await seeder.run();
 
-    console.info(`… done`)
-  }
+    console.info(`… done`);
+  };
 
-  await _.reduce(seeders, reducer, Promise.resolve())
+  await _.reduce(seeders, reducer, Promise.resolve());
 }
 
 //
 //
 
-seed()
+seed();
